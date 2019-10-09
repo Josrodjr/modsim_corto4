@@ -10,10 +10,10 @@ class game:
     status = 0
     #winner 1 or 2
     winner = 0
-    
+
     def __init__(self):
         self.board = [4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0]
-        
+
     def p_board(self):
         upper_row = ""
         lower_row = ""
@@ -23,16 +23,16 @@ class game:
         while i >= 7:
             upper_row = upper_row + " " + str(self.board[i])
             i -= 1
-        
+
         #imprimir en orden creciente el jugador 1
         while j <= 5:
             lower_row = lower_row + " " + str(self.board[j])
             j += 1
-        
+
         print(upper_row)
         print(str(self.board[13])+"           "+str(self.board[6]))
         print(lower_row)
-        
+
     def check_trigger_win(self):
         p2_board = self.board[7:13]
         p1_board = self.board[0:6]
@@ -41,7 +41,7 @@ class game:
         if sum(p1_board) == 0:
             return 0
         return 1
-        
+
     def make_move(self, player, throw):
         #get the number of pebbles on throw
         pebbles = self.board[throw]
@@ -62,7 +62,7 @@ class game:
                     pebbles -= 1
                     throw = next_spot
                 if pebbles == 0:
-                    #cuando cae en un lugar vacio 
+                    #cuando cae en un lugar vacio
                     if self.board[throw] == 1:
                         #formula para mirror 6-lugar que cayo + 6 = mirror
                         mirror =  (6 - throw) + 6
@@ -76,8 +76,8 @@ class game:
                         return "EXTRA TURN"
                     return "NO EXTRA"
 
-                
-            
+
+
             #logic for throw player 2
             if player == 2:
                 next_spot = throw + 1
@@ -95,7 +95,7 @@ class game:
                     if throw == 13:
                         return "EXTRA TURN"
                     return "NO EXTRA"
-    
+
     def valid_moves(self, player):
         valid_indexes = []
         if player == 1:
@@ -113,7 +113,7 @@ class game:
                     valid_indexes.append(i)
                 i += 1
         return valid_indexes
-        
+
     def determine_winner(self):
         p1_mancala = self.board[6]
         p2_mancala = self.board[13]
@@ -123,10 +123,10 @@ class game:
             return 2
         else:
             return 0
-            
+
     def set_board(self, board):
         self.board = board
-        
+
     def end_game_sum(self):
         i = 5
         while i >= 0:
@@ -156,10 +156,11 @@ class game:
         self.turn = 1
         while self.winner != 1:
             #start the game with player 1 playing first
+            move_result = "NO EXTRA"
             if self.turn == 1:
-                print("Player 1 playing")
+                # print("Player 1 playing")
                 #get input of the move for the player
-                if len(self.valid_moves(1)) != 0:
+                if self.valid_moves(1):
                     move  = random.choice(self.valid_moves(1))
                     #send the move to the class
                     move_result = self.make_move(1, int(move))
@@ -177,8 +178,8 @@ class game:
 
             if self.turn == 2:
                 #get input of the move for the player
-                print("Player 2 playing")
-                if len(self.valid_moves(2)) != 0:
+                # print("Player 2 playing")
+                if self.valid_moves(2):
                     move  = random.choice(self.valid_moves(2))
                     #send the move to the class
                     move_result = self.make_move(2, int(move))
@@ -195,4 +196,13 @@ class game:
                     self.turn = 1
         #return if win or loose
         return self.board
-    
+
+    def reset(self):
+        #game board
+        self.board = [4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0]
+        #current turn 1 or 2
+        self.turn = 1
+        #game status 0 incomplete 1 finished
+        self.status = 0
+        #winner 1 or 2
+        self.winner = 0
