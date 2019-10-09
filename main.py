@@ -4,7 +4,7 @@ import operator
 import copy
 from game import game
 
-ITERATIONS = 6
+ITERATIONS = 10000
 # generate the number of iterations for each  available option
 NUM_OPTIONS = int(math.floor(ITERATIONS/6))
 # OBJECTS = [game() for i in range(NUM_OPTIONS)]
@@ -82,6 +82,8 @@ if __name__ == "__main__":
                     results[move] = sum(t1_results)
                 # select the best course for montecarlo
                 move  = max(results.items(), key=operator.itemgetter(1))[0]
+
+                # print(results)
 
                 # no montecarlo
                 # move = random.choice(a_game.valid_moves(2))

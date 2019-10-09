@@ -168,7 +168,7 @@ class game:
                 if self.check_trigger_win() == 0:
                     #sum all pebbles to mancalas
                     self.end_game_sum()
-                    print("THE WINNER IS: " + str(self.determine_winner()))
+                    # print("THE WINNER IS: " + str(self.determine_winner()))
                     self.winner = 1
                 #check if player 1 gets extra turn
                 if move_result == "EXTRA TURN":
@@ -187,7 +187,7 @@ class game:
                 if self.check_trigger_win() == 0:
                     #sum all pebbles to mancalas
                     self.end_game_sum()
-                    print("THE WINNER IS: " + str(self.determine_winner()))
+                    # print("THE WINNER IS: " + str(self.determine_winner()))
                     self.winner = 1
                 #check if player 2 gets extra turn
                 if move_result == "EXTRA TURN":
