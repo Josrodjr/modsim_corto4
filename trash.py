@@ -1,0 +1,10 @@
+    #a_game.make_move(2, 11)
+    #a_game.make_move(1, 4)
+    #print(a_game.make_move(1, 3))
+    #a = a_game.valid_moves(1)
+    #print(a_game.determine_winner())
+    #a_game.set_board([4, 4, 4, 4, 4, 4, 1, 4, 4, 4, 4, 4, 4, 1])
+    #a_game.end_game_sum()
+
+    #a_game.p_board()
+    #print(a_game.check_trigger_win())
