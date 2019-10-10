@@ -158,7 +158,7 @@ class game:
             #start the game with player 1 playing first
             move_result = "NO EXTRA"
             if self.turn == 1:
-                # print("Player 1 playing")
+                
                 #get input of the move for the player
                 if self.valid_moves(1):
                     move  = random.choice(self.valid_moves(1))
@@ -168,7 +168,7 @@ class game:
                 if self.check_trigger_win() == 0:
                     #sum all pebbles to mancalas
                     self.end_game_sum()
-                    # print("THE WINNER IS: " + str(self.determine_winner()))
+                    
                     self.winner = 1
                 #check if player 1 gets extra turn
                 if move_result == "EXTRA TURN":
@@ -178,7 +178,7 @@ class game:
 
             if self.turn == 2:
                 #get input of the move for the player
-                # print("Player 2 playing")
+                
                 if self.valid_moves(2):
                     move  = random.choice(self.valid_moves(2))
                     #send the move to the class
@@ -187,7 +187,7 @@ class game:
                 if self.check_trigger_win() == 0:
                     #sum all pebbles to mancalas
                     self.end_game_sum()
-                    # print("THE WINNER IS: " + str(self.determine_winner()))
+                   
                     self.winner = 1
                 #check if player 2 gets extra turn
                 if move_result == "EXTRA TURN":

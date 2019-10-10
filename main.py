@@ -27,13 +27,6 @@ if __name__ == "__main__":
 
     a_game.p_board()
 
-
-    # make a test with same board
-    # result = a_game.subgame(a_game.board, 12)
-    # print(result)
-    # a_game.reset()
-    # print(a_game.board)
-
     while a_game.winner != 1:
         move_result = "NO EXTRA"
         #start the game with player 1 playing first
@@ -82,8 +75,6 @@ if __name__ == "__main__":
                     results[move] = sum(t1_results)
                 # select the best course for montecarlo
                 move  = max(results.items(), key=operator.itemgetter(1))[0]
-
-                # print(results)
 
                 # no montecarlo
                 # move = random.choice(a_game.valid_moves(2))
